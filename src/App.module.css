@@ -1,0 +1,98 @@
+/*
+Définie des variables CSS qui permettent de ne pas répéter
+les valeurs dans notre css
+*/
+:root {
+  /* Ici on définie la variable "violet" */
+  --violet: #563846;
+  --breakpointTablet: 768px;
+  --defaultPadding: 1rem;
+}
+
+.App {
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  /* Ici on utilise la variable violet */
+  background-color: var(--violet);
+  color: white;
+  padding: var(--defaultPadding);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.burger {
+  position: absolute;
+  left: var(--defaultPadding);
+}
+
+.burger i {
+  font-size: 2rem;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--violet);
+  position: absolute;
+  width: 100%;
+  transform: translateY(-100%);
+  z-index: 0;
+  transition: transform .5s;
+}
+
+.active {
+  transform: translateY(0);
+}
+
+.menu li a {
+  display: block;
+  padding: var(--defaultPadding);
+}
+
+.logo img {
+  max-height: 40px;
+  border-radius: 100%;
+}
+
+.tabletMenu {
+  display: none;
+}
+
+/* TABLET DESIGN */
+@media screen and (min-width: 768px) {
+  .burger {
+    display: none;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .tabletMenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+
+  .tabletMenu li {
+    display: block;
+  }
+
+  .tabletMenu li a {
+    display: block;
+    padding: var(--defaultPadding);
+    color: white;
+    text-decoration: none;
+  }
+
+  .menu {
+    display: none;
+  }
+}
